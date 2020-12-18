@@ -1,0 +1,54 @@
+<div class="container">
+  <h1 class="ml-auto pb-3">Create Creator</h1>
+  <div *ngIf="!submitted" style="width: 400px;">
+    <form [formGroup]="creatorSaveForm " (ngSubmit)="saveCreator(saveCreator)">
+      <div class="form-group">
+        <label for="name">Creator FirstName</label>
+        <input type="text" class="form-control" formControlName="first_name" data-toggle="tooltip"
+               data-placement="right" title="Enter Creator FirstName">
+        <div class="alert alert-danger" *ngIf="(CreatorFirstName.touched) && (CreatorFirstName.invalid)"
+             style="margin-top: 5px;">
+          <span *ngIf="CreatorFirstName.errors.required">Creator FirstName is Required</span>
+          <span *ngIf="CreatorFirstName.errors.minlength">
+                            MinLength Error
+            </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Creator LastName</label>
+        <input type="text" class="form-control" formControlName="last_name" data-toggle="tooltip"
+               data-placement="right" title="Enter Creator LastName">
+        <div class="alert alert-danger" *ngIf="(CreatorLastName.touched) && (CreatorLastName.invalid)"
+             style="margin-top: 5px;">
+          <span *ngIf="CreatorLastName.errors.required">Creator LastName is Required</span>
+          <span *ngIf="CreatorLastName.errors.minlength">
+                            MinLength Error
+            </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Creator AuthorName</label>
+        <input type="text" class="form-control" formControlName="author_name" data-toggle="tooltip"
+               data-placement="right" title="Enter Creator AuthorName">
+        <div class="alert alert-danger" *ngIf="(CreatorAuthorName.touched) && (CreatorAuthorName.invalid)"
+             style="margin-top: 5px;">
+          <span *ngIf="CreatorAuthorName.errors.required">Creator AuthorName is Required</span>
+          <span *ngIf="CreatorAuthorName.errors.minlength">
+                            MinLength Error
+            </span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-outline-success">Submit</button>
+    </form>
+  </div>
+  <div class="row">
+    <div *ngIf="submitted">
+      <h4>Creator Added SuccessFully!</h4>
+      <button (click)="addCreatorForm()" class='btn btn-outline-success'>Add More Creator</button>
+    </div>
+  </div>
+</div>
+

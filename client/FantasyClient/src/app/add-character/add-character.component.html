@@ -1,0 +1,54 @@
+<div class="container">
+  <h1 class="ml-auto pb-3">Create Creator</h1>
+  <div *ngIf="!submitted" style="width: 400px;">
+    <form [formGroup]="characterSaveForm" (ngSubmit)="saveCharacter(saveCharacter)">
+      <div class="form-group">
+        <label for="name">Character FirstName</label>
+        <input type="text" class="form-control" formControlName="first_name" data-toggle="tooltip"
+               data-placement="right" title="Enter Creator FirstName">
+        <div class="alert alert-danger" *ngIf="(CharacterFirstName.touched) && (CharacterFirstName.invalid)"
+             style="margin-top: 5px;">
+          <span *ngIf="CharacterFirstName.errors.required">Creator FirstName is Required</span>
+          <span *ngIf="CharacterFirstName.errors.minlength">
+                            MinLength Error
+            </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Character LastName</label>
+        <input type="text" class="form-control" formControlName="last_name" data-toggle="tooltip"
+               data-placement="right" title="Enter Creator LastName">
+        <div class="alert alert-danger" *ngIf="(CharacterLastName.touched) && (CharacterLastName.invalid)"
+             style="margin-top: 5px;">
+          <span *ngIf="CharacterLastName.errors.required">Creator LastName is Required</span>
+          <span *ngIf="CharacterLastName.errors.minlength">
+                            MinLength Error
+            </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="repeatSelect">Author Name</label>
+        <select class="form-control " formControlName="author_name" data-toggle="tooltip"
+                data-placement="right" title="Select Creator" onfocus='this.size=3;' onblur='this.size=1;'
+                onchange='this.size=1; this.blur();'>
+          <option *ngFor="let creator of creators" value="{{creator['authorName']}}">{{creator['authorName']}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Story</label>
+        <textarea rows="4" cols="50" class="form-control" formControlName="story"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-outline-success">Submit</button>
+    </form>
+  </div>
+  <div class="row">
+    <div *ngIf="submitted">
+      <h4>Character Added SuccessFully!</h4>
+      <button (click)="addCharacterSaveForm()" class='btn btn-outline-success'>Add More Creator</button>
+    </div>
+  </div>
+</div>

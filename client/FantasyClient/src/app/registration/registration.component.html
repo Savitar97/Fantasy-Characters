@@ -1,0 +1,26 @@
+<div class="container" *ngIf="!authenticated()">
+  <h1 class="ml-auto pb-3 text-center">Registration</h1>
+  <form [formGroup]="registrationForm " (ngSubmit)="doRegistration(registrationForm)">
+    <div class="form-group">
+      <label for="name">Username</label>
+      <input type="text" class="form-control"  formControlName="user_name" data-toggle="tooltip"
+             data-placement="right" title="Enter Username" >
+    </div>
+
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="password" class="form-control"  formControlName="password" data-toggle="tooltip"
+             data-placement="right" title="Enter Password" >
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="email" class="form-control"  formControlName="email" data-toggle="tooltip"
+             data-placement="right" title="Enter Email">
+    </div>
+    <button type="submit" class="btn btn-outline-success">Sign Up</button>
+  </form>
+</div>
+<div class="container" *ngIf="!submitted">
+  <h3 class="ml-auto pb-3 text-center text-danger">Username already use or Incorrect data</h3>
+</div>
