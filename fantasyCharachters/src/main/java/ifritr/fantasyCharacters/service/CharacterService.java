@@ -24,7 +24,7 @@ public class CharacterService {
     }
 
 
-    public Iterable<FantasyCharacter> getAllByAuthorName(String name){
+    public Iterable<FantasyCharacter> getAllByAuthorName(String name) {
         return characterRepository.findByCreatorAuthorName(name);
     }
 
@@ -39,11 +39,11 @@ public class CharacterService {
         return character.get();
     }
 
-    public FantasyCharacter createOne(String name,FantasyCharacter fantasyCharacter) {
-            return creatorRepository.findByAuthorName(name).map( creator -> {
-                fantasyCharacter.setCreator(creator);
-                return characterRepository.save(fantasyCharacter);
-            }).orElseThrow(()->new ResponseStatusException(
+    public FantasyCharacter createOne(String name, FantasyCharacter fantasyCharacter) {
+        return creatorRepository.findByAuthorName(name).map(creator -> {
+            fantasyCharacter.setCreator(creator);
+            return characterRepository.save(fantasyCharacter);
+        }).orElseThrow(() -> new ResponseStatusException(
                 HttpStatus.INTERNAL_SERVER_ERROR, " Unknown server error!"));
     }
 
@@ -53,7 +53,7 @@ public class CharacterService {
         currentCharacter.setFirstName(character.getFirstName());
         currentCharacter.setLastName(character.getLastName());
         currentCharacter.setStory(character.getStory());
-        currentCharacter= characterRepository.save(currentCharacter);
+        currentCharacter = characterRepository.save(currentCharacter);
         return currentCharacter;
     }
 

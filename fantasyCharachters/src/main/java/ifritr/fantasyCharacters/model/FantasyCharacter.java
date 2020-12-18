@@ -17,17 +17,17 @@ import java.time.ZonedDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="fantasy_character")
+@Table(name = "fantasy_character")
 public class FantasyCharacter {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "character_id")
     Integer id;
 
-    @Column(name = "first_name",nullable = false)
+    @Column(name = "first_name", nullable = false)
     String firstName;
 
-    @Column(name = "last_name",nullable = false)
+    @Column(name = "last_name", nullable = false)
     String lastName;
 
     @Column(name = "published_date")

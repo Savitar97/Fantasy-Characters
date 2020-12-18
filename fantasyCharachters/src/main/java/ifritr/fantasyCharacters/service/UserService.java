@@ -44,7 +44,7 @@ public class UserService {
     public String signup(User user) {
         if (!userRepository.existsByUsername(user.getUsername())) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            if(user.getRoles()==null) {
+            if (user.getRoles() == null) {
                 user.setRoles(new ArrayList<Role>(Arrays.asList(Role.ROLE_CLIENT)));
             }
             userRepository.save(user);
@@ -73,7 +73,6 @@ public class UserService {
     public String refresh(String username) {
         return jwtTokenProvider.createToken(username, userRepository.findByUsername(username).getRoles());
     }
-
 
 
 }

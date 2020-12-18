@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface CreatorRepository extends PagingAndSortingRepository<Creator,Integer> {
+public interface CreatorRepository extends PagingAndSortingRepository<Creator, Integer> {
     Optional<Creator> findByAuthorName(String name);
 }

@@ -10,7 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
-@RequestMapping(value="/api")
+@RequestMapping(value = "/api")
 public class CreatorController {
     @Autowired
     private CreatorService creatorService;

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface CharacterRepository extends PagingAndSortingRepository<FantasyCharacter,Integer>{
+public interface CharacterRepository extends PagingAndSortingRepository<FantasyCharacter, Integer> {
     Iterable<FantasyCharacter> findByCreatorAuthorName(String name);
 }

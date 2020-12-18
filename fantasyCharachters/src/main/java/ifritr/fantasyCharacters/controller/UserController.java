@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String signup( @RequestBody UserDataDTO user) {
+    public String signup(@RequestBody UserDataDTO user) {
         return userService.signup(modelMapper.map(user, User.class));
     }
 

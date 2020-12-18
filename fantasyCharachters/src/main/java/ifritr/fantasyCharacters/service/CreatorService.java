@@ -39,7 +39,7 @@ public class CreatorService {
         }
     }
 
-    public Creator getByAuthorName(String name){
+    public Creator getByAuthorName(String name) {
         Optional<Creator> creator = creatorRepository.findByAuthorName(name);
 
         if (!creator.isPresent()) {

@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
-@RequestMapping(value="/api")
+@RequestMapping(value = "/api")
 public class CharacterController {
     @Autowired
     private CharacterService characterService;
@@ -36,7 +36,7 @@ public class CharacterController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
     @GetMapping("character-list/{authorName}")
-    public Iterable<FantasyCharacter> getAllByCreatorAuthorName(@PathVariable String authorName){
+    public Iterable<FantasyCharacter> getAllByCreatorAuthorName(@PathVariable String authorName) {
         try {
             return characterService.getAllByAuthorName(authorName);
         } catch (Exception e) {
@@ -48,13 +48,13 @@ public class CharacterController {
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
     @PostMapping("characters/{authorName}")
     public FantasyCharacter saveCharacter(@RequestBody FantasyCharacter character, @PathVariable String authorName) {
-            return characterService.createOne(authorName,character);
+        return characterService.createOne(authorName, character);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
     @PutMapping("characters/{id}")
     public FantasyCharacter updateCharacter(@PathVariable int id, @RequestBody FantasyCharacter character) {
-        return characterService.updateOne(id,character);
+        return characterService.updateOne(id, character);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
