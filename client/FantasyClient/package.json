@@ -23,7 +23,7 @@
     "bootstrap": "^4.5.3",
     "core-js": "^3.8.1",
     "datatables.net": "^1.10.22",
-    "jquerry": "^2.0.0",
+    "jquerry": "0.0.1-security",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",

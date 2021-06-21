@@ -1,5 +1,7 @@
 package ifritr.fantasyCharacters.model;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.util.List;
 import javax.validation.constraints.Size;
